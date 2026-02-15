@@ -83,7 +83,7 @@ export const AppLogo = () => {
                 onTouchEnd={handleTouchEnd}
                 style={{ cursor: 'pointer' }}
             >
-                <span className='novaprime-text'>NOVAPRIME</span>
+                <span className='novaprime-text'>PROTRADE</span>
             </div>
         );
     }
@@ -98,7 +98,7 @@ export const AppLogo = () => {
             onMouseLeave={handleMouseLeave}
             style={{ cursor: 'pointer' }}
         >
-            <span className='novaprime-text'>NOVAPRIME</span>
+            <span className='novaprime-text'>PROTRADE</span>
         </div>
     );
 };

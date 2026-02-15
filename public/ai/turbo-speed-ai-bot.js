@@ -620,4 +620,4 @@ window.TurboSpeedAIBot = TurboSpeedAIBot;
 // Make available globally
 window.TurboSpeedAIBot = TurboSpeedAIBot;
 
-console.log('✅ Turbo Speed AI Bot loaded with App ID 82255');
+console.log('✅ Turbo Speed AI Bot loaded with App ID 125083');

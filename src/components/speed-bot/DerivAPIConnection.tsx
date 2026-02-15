@@ -39,7 +39,7 @@ export const DerivAPIConnection: React.FC<DerivAPIConnectionProps> = ({ onConnec
 
             ws.onopen = () => {
                 clearTimeout(connectionTimeout);
-                console.log('✅ Connected to Deriv API with App ID: 82255');
+                console.log('✅ Connected to Deriv API with App ID: 125083');
 
                 // For public data access, we don't need authorization
                 // Just send a ping to confirm connection
@@ -73,7 +73,7 @@ export const DerivAPIConnection: React.FC<DerivAPIConnectionProps> = ({ onConnec
                         setConnectionError('');
                         setWsConnection(ws);
                         setConnectionInfo({
-                            appId: '82255',
+                            appId: '125083',
                             endpoint: 'wss://ws.derivws.com/websockets/v3',
                             status: 'Connected',
                             mode: 'Public Market Data',
@@ -111,7 +111,7 @@ export const DerivAPIConnection: React.FC<DerivAPIConnectionProps> = ({ onConnec
                             setConnectionError('');
                             setWsConnection(ws);
                             setConnectionInfo({
-                                appId: '82255',
+                                appId: '125083',
                                 endpoint: 'wss://ws.derivws.com/websockets/v3',
                                 status: 'Connected',
                                 mode: 'Public Market Data',
@@ -197,7 +197,7 @@ export const DerivAPIConnection: React.FC<DerivAPIConnectionProps> = ({ onConnec
                     <div className='connection-info-box'>
                         <h4>📡 Public Market Data Connection</h4>
                         <p>
-                            Connecting to Deriv API using App ID <strong>82255</strong> for real-time market data
+                            Connecting to Deriv API using App ID <strong>125083</strong> for real-time market data
                             access. No authentication required for public market data.
                         </p>
 

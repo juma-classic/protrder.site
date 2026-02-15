@@ -30,69 +30,24 @@ const Tutorial = lazy(() => import('../tutorials'));
 const CopyTradingPage = lazy(() => import('../copy-trading-page'));
 
 const DashboardIcon = () => (
-    <svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+    <svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg' className='dashboard-nav-icon'>
         <defs>
-            <linearGradient id='dashGrad' x1='0%' y1='0%' x2='100%' y2='100%'>
-                <stop offset='0%' stopColor='#ffffff' />
-                <stop offset='100%' stopColor='#fbbf24' />
+            <linearGradient id='windowsGrad' x1='0%' y1='0%' x2='100%' y2='100%'>
+                <stop offset='0%' stopColor='#00a4ef' />
+                <stop offset='50%' stopColor='#0078d4' />
+                <stop offset='100%' stopColor='#005a9e' />
             </linearGradient>
-            <filter id='dashGlow'>
-                <feGaussianBlur stdDeviation='2' result='coloredBlur'/>
-                <feMerge>
-                    <feMergeNode in='coloredBlur'/>
-                    <feMergeNode in='SourceGraphic'/>
-                </feMerge>
-            </filter>
-        </defs>
-        {/* Connection lines */}
-        <path d='M7 7h4M15 7h4M7 11v6M19 11v6' stroke='url(#dashGrad)' strokeWidth='1.5' opacity='0.6' />
-        
-        {/* Top left node - green/yellow square */}
-        <rect x='3' y='3' width='8' height='8' rx='2' fill='url(#dashGrad)' filter='url(#dashGlow)' opacity='0.9' />
-        <circle cx='7' cy='7' r='1.5' fill='#ffffff' />
-        
-        {/* Top right node - gray square with green dot */}
-        <rect x='15' y='3' width='8' height='8' rx='2' fill='#9ca3af' opacity='0.7' />
-        <circle cx='19' cy='7' r='1.2' fill='url(#dashGrad)' filter='url(#dashGlow)' />
-        <text x='20' y='9' fontSize='6' fontWeight='bold' fill='#ffffff'>F</text>
-        
-        {/* Bottom left node - gray square with green dot */}
-        <rect x='3' y='13' width='8' height='8' rx='2' fill='#9ca3af' opacity='0.7' />
-        <circle cx='7' cy='17' r='1.2' fill='url(#dashGrad)' filter='url(#dashGlow)' />
-        
-        {/* Bottom right node - large green/yellow square */}
-        <rect x='15' y='13' width='8' height='8' rx='2' fill='url(#dashGrad)' filter='url(#dashGlow)' opacity='0.9' />
-        <circle cx='19' cy='17' r='1.5' fill='#ffffff' />
-        
-        <style>
-            {`
-                @keyframes dashPulse {
-                    0%, 100% { opacity: 0.9; }
-                    50% { opacity: 0.6; }
-                }
-                @keyframes linePulse {
-                    0%, 100% { opacity: 0.6; }
-                    50% { opacity: 1; }
-                }
-            `}
-        </style>
-    </svg>
-);
-
-const BotBuilderIcon = () => (
-    <svg width='40.56' height='40.56' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg' className='bot-builder-nav-icon'>
-        <defs>
-            <linearGradient id='botGrad' x1='0%' y1='0%' x2='100%' y2='100%'>
-                <stop offset='0%' stopColor='#ffffff' />
-                <stop offset='50%' stopColor='#fbbf24' />
-                <stop offset='100%' stopColor='#f59e0b' />
+            <linearGradient id='atomGrad' x1='0%' y1='0%' x2='100%' y2='100%'>
+                <stop offset='0%' stopColor='#fbbf24' />
+                <stop offset='50%' stopColor='#f59e0b' />
+                <stop offset='100%' stopColor='#ff6b00' />
             </linearGradient>
-            <radialGradient id='botRadial' cx='50%' cy='50%'>
-                <stop offset='0%' stopColor='#fbbf24' stopOpacity='1' />
-                <stop offset='100%' stopColor='#f59e0b' stopOpacity='0.3' />
+            <radialGradient id='dashRadial'>
+                <stop offset='0%' stopColor='#00a4ef' stopOpacity='0.6' />
+                <stop offset='100%' stopColor='#005a9e' stopOpacity='0' />
             </radialGradient>
-            <filter id='botGlow'>
-                <feGaussianBlur stdDeviation='2' result='coloredBlur'/>
+            <filter id='dashGlow'>
+                <feGaussianBlur stdDeviation='2.5' result='coloredBlur'/>
                 <feMerge>
                     <feMergeNode in='coloredBlur'/>
                     <feMergeNode in='SourceGraphic'/>
@@ -100,135 +55,127 @@ const BotBuilderIcon = () => (
             </filter>
         </defs>
         
-        {/* Central processor core */}
-        <circle cx='12' cy='12' r='4' fill='url(#botRadial)' stroke='url(#botGrad)' strokeWidth='1.5' filter='url(#botGlow)' />
+        {/* Energy aura background */}
+        <circle cx='12' cy='12' r='11' fill='url(#dashRadial)' opacity='0.4' />
         
-        {/* Inner rotating gear */}
-        <path d='M12 9L13 10.5L12 12L11 10.5Z' fill='#fbbf24' />
-        <path d='M15 12L13.5 13L12 12L13.5 11Z' fill='#fbbf24' />
-        <path d='M12 15L11 13.5L12 12L13 13.5Z' fill='#fbbf24' />
-        <path d='M9 12L10.5 11L12 12L10.5 13Z' fill='#fbbf24' />
+        {/* Windows logo - 4 squares */}
+        <rect x='5' y='5' width='6' height='6' rx='0.5' fill='url(#windowsGrad)' filter='url(#dashGlow)' />
+        <rect x='13' y='5' width='6' height='6' rx='0.5' fill='url(#windowsGrad)' filter='url(#dashGlow)' />
+        <rect x='5' y='13' width='6' height='6' rx='0.5' fill='url(#windowsGrad)' filter='url(#dashGlow)' />
+        <rect x='13' y='13' width='6' height='6' rx='0.5' fill='url(#windowsGrad)' filter='url(#dashGlow)' />
         
-        {/* Central AI core */}
-        <circle cx='12' cy='12' r='1.5' fill='#fbbf24' filter='url(#botGlow)' />
+        {/* Central atom nucleus */}
+        <circle cx='12' cy='12' r='1.5' fill='url(#atomGrad)' filter='url(#dashGlow)' />
+        <circle cx='12' cy='12' r='0.8' fill='#ffffff' opacity='0.9' />
         
-        {/* Outer rotating ring with nodes */}
-        <circle cx='12' cy='12' r='7' stroke='url(#botGrad)' strokeWidth='1.5' fill='none' opacity='0.6' strokeDasharray='2 3' />
+        {/* Spinning orbital ring 1 - horizontal */}
+        <ellipse cx='12' cy='12' rx='8' ry='3' 
+                 stroke='url(#atomGrad)' 
+                 strokeWidth='1.5' 
+                 fill='none' 
+                 opacity='0.8' 
+                 filter='url(#dashGlow)' 
+                 className='orbit-ring-1' />
         
-        {/* Circuit nodes at cardinal points */}
-        <circle cx='12' cy='5' r='1.2' fill='#fbbf24' filter='url(#botGlow)' />
-        <circle cx='19' cy='12' r='1.2' fill='#fbbf24' filter='url(#botGlow)' />
-        <circle cx='12' cy='19' r='1.2' fill='#fbbf24' filter='url(#botGlow)' />
-        <circle cx='5' cy='12' r='1.2' fill='#fbbf24' filter='url(#botGlow)' />
+        {/* Spinning orbital ring 2 - vertical */}
+        <ellipse cx='12' cy='12' rx='3' ry='8' 
+                 stroke='url(#atomGrad)' 
+                 strokeWidth='1.5' 
+                 fill='none' 
+                 opacity='0.8' 
+                 filter='url(#dashGlow)' 
+                 className='orbit-ring-2' />
         
-        {/* Connecting circuit lines */}
-        <line x1='12' y1='5' x2='12' y2='8' stroke='url(#botGrad)' strokeWidth='1' opacity='0.5' />
-        <line x1='19' y1='12' x2='16' y2='12' stroke='url(#botGrad)' strokeWidth='1' opacity='0.5' />
-        <line x1='12' y1='19' x2='12' y2='16' stroke='url(#botGrad)' strokeWidth='1' opacity='0.5' />
-        <line x1='5' y1='12' x2='8' y2='12' stroke='url(#botGrad)' strokeWidth='1' opacity='0.5' />
-        
-        {/* Corner processors */}
-        <rect x='2' y='2' width='3' height='3' rx='0.5' fill='url(#botGrad)' opacity='0.7' />
-        <rect x='19' y='2' width='3' height='3' rx='0.5' fill='url(#botGrad)' opacity='0.7' />
-        <rect x='2' y='19' width='3' height='3' rx='0.5' fill='url(#botGrad)' opacity='0.7' />
-        <rect x='19' y='19' width='3' height='3' rx='0.5' fill='url(#botGrad)' opacity='0.7' />
-        
-        {/* Corner processor indicators */}
-        <circle cx='3.5' cy='3.5' r='0.6' fill='#fbbf24' />
-        <circle cx='20.5' cy='3.5' r='0.6' fill='#fbbf24' />
-        <circle cx='3.5' cy='20.5' r='0.6' fill='#fbbf24' />
-        <circle cx='20.5' cy='20.5' r='0.6' fill='#fbbf24' />
-        
-        {/* Diagonal connection lines */}
-        <line x1='5' y1='5' x2='8' y2='8' stroke='url(#botGrad)' strokeWidth='0.5' opacity='0.4' strokeDasharray='1 1' />
-        <line x1='19' y1='5' x2='16' y2='8' stroke='url(#botGrad)' strokeWidth='0.5' opacity='0.4' strokeDasharray='1 1' />
-        <line x1='5' y1='19' x2='8' y2='16' stroke='url(#botGrad)' strokeWidth='0.5' opacity='0.4' strokeDasharray='1 1' />
-        <line x1='19' y1='19' x2='16' y2='16' stroke='url(#botGrad)' strokeWidth='0.5' opacity='0.4' strokeDasharray='1 1' />
-        
-        {/* Orbiting data particles */}
-        <circle cx='12' cy='7' r='0.8' fill='#ffffff' opacity='0.9' />
-        <circle cx='15' cy='9' r='0.8' fill='#ffffff' opacity='0.9' />
-        <circle cx='15' cy='15' r='0.8' fill='#ffffff' opacity='0.9' />
-        <circle cx='9' cy='15' r='0.8' fill='#ffffff' opacity='0.9' />
+        {/* Electrons on orbits */}
+        <circle cx='20' cy='12' r='1' fill='url(#atomGrad)' filter='url(#dashGlow)' className='electron-1' />
+        <circle cx='4' cy='12' r='1' fill='url(#atomGrad)' filter='url(#dashGlow)' className='electron-2' />
+        <circle cx='12' cy='4' r='1' fill='url(#atomGrad)' filter='url(#dashGlow)' className='electron-3' />
+        <circle cx='12' cy='20' r='1' fill='url(#atomGrad)' filter='url(#dashGlow)' className='electron-4' />
         
         <style>
             {`
-                @keyframes botCoreRotate {
+                @keyframes orbitSpin1 {
                     0% { transform: rotate(0deg); }
                     100% { transform: rotate(360deg); }
                 }
-                @keyframes botRingRotate {
+                @keyframes orbitSpin2 {
                     0% { transform: rotate(0deg); }
                     100% { transform: rotate(-360deg); }
                 }
-                @keyframes botNodePulse {
-                    0%, 100% { r: 1.2; opacity: 1; }
-                    50% { r: 1.5; opacity: 0.6; }
+                @keyframes electronOrbit1 {
+                    0% { 
+                        cx: 20; 
+                        cy: 12; 
+                    }
+                    25% { 
+                        cx: 12; 
+                        cy: 15; 
+                    }
+                    50% { 
+                        cx: 4; 
+                        cy: 12; 
+                    }
+                    75% { 
+                        cx: 12; 
+                        cy: 9; 
+                    }
+                    100% { 
+                        cx: 20; 
+                        cy: 12; 
+                    }
                 }
-                @keyframes botCorePulse {
-                    0%, 100% { r: 1.5; opacity: 1; }
-                    50% { r: 1.8; opacity: 0.7; }
+                @keyframes electronOrbit2 {
+                    0% { 
+                        cx: 12; 
+                        cy: 4; 
+                    }
+                    25% { 
+                        cx: 15; 
+                        cy: 12; 
+                    }
+                    50% { 
+                        cx: 12; 
+                        cy: 20; 
+                    }
+                    75% { 
+                        cx: 9; 
+                        cy: 12; 
+                    }
+                    100% { 
+                        cx: 12; 
+                        cy: 4; 
+                    }
                 }
-                @keyframes botLinePulse {
-                    0%, 100% { opacity: 0.5; }
-                    50% { opacity: 1; }
+                @keyframes nucleusPulse {
+                    0%, 100% { transform: scale(1); opacity: 1; }
+                    50% { transform: scale(1.2); opacity: 0.8; }
                 }
-                @keyframes botProcessorBlink {
-                    0%, 90%, 100% { opacity: 0.7; }
-                    95% { opacity: 1; }
-                }
-                @keyframes botIndicatorPulse {
-                    0%, 100% { r: 0.6; opacity: 1; }
-                    50% { r: 0.8; opacity: 0.5; }
-                }
-                @keyframes botOrbitRotate {
-                    0% { transform: rotate(0deg) translateX(0); }
-                    100% { transform: rotate(360deg) translateX(0); }
-                }
-                @keyframes botDashFlow {
-                    0% { stroke-dashoffset: 0; }
-                    100% { stroke-dashoffset: 10; }
+                @keyframes windowsPulse {
+                    0%, 100% { opacity: 1; }
+                    50% { opacity: 0.7; }
                 }
                 
-                /* Always animate - scoped to bot builder icon */
-                .bot-builder-nav-icon path:nth-of-type(1),
-                .bot-builder-nav-icon path:nth-of-type(2),
-                .bot-builder-nav-icon path:nth-of-type(3),
-                .bot-builder-nav-icon path:nth-of-type(4) { 
-                    animation: botCoreRotate 4s linear infinite; 
+                .dashboard-nav-icon .orbit-ring-1 {
+                    animation: orbitSpin1 4s linear infinite;
                     transform-origin: 12px 12px;
                 }
-                .bot-builder-nav-icon circle:nth-of-type(2) { 
-                    animation: botRingRotate 8s linear infinite, botDashFlow 2s linear infinite; 
+                .dashboard-nav-icon .orbit-ring-2 {
+                    animation: orbitSpin2 4s linear infinite;
                     transform-origin: 12px 12px;
                 }
-                .bot-builder-nav-icon circle:nth-of-type(3),
-                .bot-builder-nav-icon circle:nth-of-type(4),
-                .bot-builder-nav-icon circle:nth-of-type(5),
-                .bot-builder-nav-icon circle:nth-of-type(6) { 
-                    animation: botNodePulse 2s ease-in-out infinite; 
+                .dashboard-nav-icon .electron-1,
+                .dashboard-nav-icon .electron-2 {
+                    animation: electronOrbit1 3s linear infinite;
                 }
-                .bot-builder-nav-icon circle:nth-of-type(1) { 
-                    animation: botCorePulse 1.5s ease-in-out infinite; 
+                .dashboard-nav-icon .electron-3,
+                .dashboard-nav-icon .electron-4 {
+                    animation: electronOrbit2 3s linear infinite;
                 }
-                .bot-builder-nav-icon line { 
-                    animation: botLinePulse 2s ease-in-out infinite; 
+                .dashboard-nav-icon circle:nth-of-type(2) {
+                    animation: nucleusPulse 2s ease-in-out infinite;
                 }
-                .bot-builder-nav-icon rect { 
-                    animation: botProcessorBlink 3s ease-in-out infinite; 
-                }
-                .bot-builder-nav-icon circle:nth-of-type(7),
-                .bot-builder-nav-icon circle:nth-of-type(8),
-                .bot-builder-nav-icon circle:nth-of-type(9),
-                .bot-builder-nav-icon circle:nth-of-type(10) { 
-                    animation: botIndicatorPulse 1.5s ease-in-out infinite; 
-                }
-                .bot-builder-nav-icon circle:nth-of-type(11),
-                .bot-builder-nav-icon circle:nth-of-type(12),
-                .bot-builder-nav-icon circle:nth-of-type(13),
-                .bot-builder-nav-icon circle:nth-of-type(14) { 
-                    animation: botOrbitRotate 6s linear infinite; 
-                    transform-origin: 12px 12px;
+                .dashboard-nav-icon rect {
+                    animation: windowsPulse 3s ease-in-out infinite;
                 }
             `}
         </style>
@@ -239,18 +186,53 @@ const ChartsIcon = () => (
     <svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
         <defs>
             <linearGradient id='chartGrad' x1='0%' y1='0%' x2='100%' y2='100%'>
-                <stop offset='0%' stopColor='#ffffff' />
-                <stop offset='100%' stopColor='#fbbf24' />
+                <stop offset='0%' stopColor='#fbbf24' />
+                <stop offset='50%' stopColor='#f59e0b' />
+                <stop offset='100%' stopColor='#ff6b00' />
             </linearGradient>
+            <radialGradient id='chartRadial'>
+                <stop offset='0%' stopColor='#fbbf24' stopOpacity='0.6' />
+                <stop offset='100%' stopColor='#ff6b00' stopOpacity='0' />
+            </radialGradient>
+            <filter id='chartGlow'>
+                <feGaussianBlur stdDeviation='2.5' result='coloredBlur'/>
+                <feMerge>
+                    <feMergeNode in='coloredBlur'/>
+                    <feMergeNode in='SourceGraphic'/>
+                </feMerge>
+            </filter>
         </defs>
-        {/* Charts - Trending up line chart */}
-        <path d='M3 17l6-6 4 4 8-8' stroke='url(#chartGrad)' strokeWidth='2.5' strokeLinecap='round' strokeLinejoin='round' />
-        <path d='M17 7h4v4' stroke='url(#chartGrad)' strokeWidth='2.5' strokeLinecap='round' strokeLinejoin='round' />
+        {/* Energy aura background */}
+        <circle cx='12' cy='12' r='11' fill='url(#chartRadial)' opacity='0.4' />
+        
+        {/* Lightning bolt chart line */}
+        <path d='M3 17 L7 13 L9 15 L13 9 L15 11 L21 5' 
+              stroke='url(#chartGrad)' 
+              strokeWidth='3' 
+              strokeLinecap='round' 
+              strokeLinejoin='round' 
+              filter='url(#chartGlow)' />
+        
+        {/* Energy burst points */}
+        <circle cx='3' cy='17' r='2' fill='url(#chartGrad)' filter='url(#chartGlow)' />
+        <circle cx='9' cy='15' r='2' fill='url(#chartGrad)' filter='url(#chartGlow)' />
+        <circle cx='15' cy='11' r='2' fill='url(#chartGrad)' filter='url(#chartGlow)' />
+        <circle cx='21' cy='5' r='2.5' fill='url(#chartGrad)' filter='url(#chartGlow)' />
+        
+        {/* Power arrow */}
+        <path d='M17 3 L21 5 L19 7' 
+              stroke='url(#chartGrad)' 
+              strokeWidth='2.5' 
+              strokeLinecap='round' 
+              strokeLinejoin='round' 
+              fill='none' 
+              filter='url(#chartGlow)' />
+        
         <style>
             {`
                 @keyframes chartPulse {
-                    0%, 100% { opacity: 1; }
-                    50% { opacity: 0.7; }
+                    0%, 100% { opacity: 1; stroke-width: 3; }
+                    50% { opacity: 0.7; stroke-width: 3.5; }
                 }
             `}
         </style>
@@ -261,18 +243,39 @@ const TutorialsIcon = () => (
     <svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
         <defs>
             <linearGradient id='tutGrad' x1='0%' y1='0%' x2='100%' y2='100%'>
-                <stop offset='0%' stopColor='#ffffff' />
-                <stop offset='100%' stopColor='#fbbf24' />
+                <stop offset='0%' stopColor='#fbbf24' />
+                <stop offset='50%' stopColor='#f59e0b' />
+                <stop offset='100%' stopColor='#ff6b00' />
             </linearGradient>
+            <radialGradient id='tutRadial'>
+                <stop offset='0%' stopColor='#fbbf24' stopOpacity='0.8' />
+                <stop offset='100%' stopColor='#ff6b00' stopOpacity='0.2' />
+            </radialGradient>
+            <filter id='tutGlow'>
+                <feGaussianBlur stdDeviation='2.5' result='coloredBlur'/>
+                <feMerge>
+                    <feMergeNode in='coloredBlur'/>
+                    <feMergeNode in='SourceGraphic'/>
+                </feMerge>
+            </filter>
         </defs>
-        {/* Tutorials - Play button in circle */}
-        <circle cx='12' cy='12' r='10' stroke='url(#tutGrad)' strokeWidth='2' fill='none' />
-        <path d='M10 8l6 4-6 4V8z' fill='url(#tutGrad)' />
+        {/* Energy aura */}
+        <circle cx='12' cy='12' r='11' fill='url(#tutRadial)' opacity='0.3' />
+        
+        {/* Power ring */}
+        <circle cx='12' cy='12' r='10' stroke='url(#tutGrad)' strokeWidth='2.5' fill='none' filter='url(#tutGlow)' />
+        
+        {/* Energy burst play triangle */}
+        <path d='M9 7 L9 17 L18 12 Z' fill='url(#tutGrad)' filter='url(#tutGlow)' />
+        
+        {/* Inner glow */}
+        <circle cx='12' cy='12' r='6' fill='url(#tutRadial)' opacity='0.4' />
+        
         <style>
             {`
                 @keyframes tutScale {
-                    0%, 100% { transform: scale(1); }
-                    50% { transform: scale(1.05); }
+                    0%, 100% { transform: scale(1); opacity: 1; }
+                    50% { transform: scale(1.08); opacity: 0.8; }
                 }
             `}
         </style>
@@ -452,15 +455,16 @@ const SignalsIcon = () => (
     <svg width='40.56' height='40.56' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg' className='signals-nav-icon'>
         <defs>
             <linearGradient id='signalGrad' x1='0%' y1='0%' x2='100%' y2='100%'>
-                <stop offset='0%' stopColor='#ffffff' />
-                <stop offset='100%' stopColor='#fbbf24' />
+                <stop offset='0%' stopColor='#10b981' />
+                <stop offset='50%' stopColor='#059669' />
+                <stop offset='100%' stopColor='#047857' />
             </linearGradient>
             <radialGradient id='signalRadial' cx='50%' cy='50%'>
-                <stop offset='0%' stopColor='#fbbf24' stopOpacity='0.8' />
-                <stop offset='100%' stopColor='#ffffff' stopOpacity='0.2' />
+                <stop offset='0%' stopColor='#10b981' stopOpacity='0.8' />
+                <stop offset='100%' stopColor='#047857' stopOpacity='0' />
             </radialGradient>
             <filter id='signalGlow'>
-                <feGaussianBlur stdDeviation='2' result='coloredBlur'/>
+                <feGaussianBlur stdDeviation='2.5' result='coloredBlur'/>
                 <feMerge>
                     <feMergeNode in='coloredBlur'/>
                     <feMergeNode in='SourceGraphic'/>
@@ -468,140 +472,140 @@ const SignalsIcon = () => (
             </filter>
         </defs>
         
-        {/* Central antenna base - vertical tower */}
-        <rect x='11' y='14' width='2' height='8' fill='url(#signalGrad)' rx='1' />
-        <circle cx='12' cy='14' r='1.5' fill='#fbbf24' filter='url(#signalGlow)' />
+        {/* Background energy aura */}
+        <circle cx='12' cy='12' r='11' fill='url(#signalRadial)' opacity='0.3' />
         
-        {/* Antenna rings - expanding outward like alien tech */}
-        <ellipse 
+        {/* Central signal source - pulsing core */}
+        <circle cx='12' cy='12' r='2' fill='url(#signalGrad)' filter='url(#signalGlow)' className='signal-core' />
+        <circle cx='12' cy='12' r='1' fill='#ffffff' opacity='0.9' />
+        
+        {/* Expanding circular rings - moving from center to outside */}
+        <circle 
             cx='12' 
-            cy='14' 
-            rx='3' 
-            ry='1.5' 
+            cy='12' 
+            r='3' 
             stroke='url(#signalGrad)' 
-            strokeWidth='1.5' 
+            strokeWidth='2' 
             fill='none'
-            opacity='0.9'
+            opacity='0'
+            filter='url(#signalGlow)'
+            className='signal-ring-1'
         />
-        <ellipse 
+        <circle 
             cx='12' 
-            cy='14' 
-            rx='5.5' 
-            ry='2.5' 
+            cy='12' 
+            r='3' 
             stroke='url(#signalGrad)' 
-            strokeWidth='1.5' 
+            strokeWidth='2' 
             fill='none'
-            opacity='0.7'
+            opacity='0'
+            filter='url(#signalGlow)'
+            className='signal-ring-2'
         />
-        <ellipse 
+        <circle 
             cx='12' 
-            cy='14' 
-            rx='8' 
-            ry='3.5' 
+            cy='12' 
+            r='3' 
             stroke='url(#signalGrad)' 
-            strokeWidth='1.5' 
+            strokeWidth='2' 
             fill='none'
-            opacity='0.5'
+            opacity='0'
+            filter='url(#signalGlow)'
+            className='signal-ring-3'
         />
-        <ellipse 
+        <circle 
             cx='12' 
-            cy='14' 
-            rx='10.5' 
-            ry='4.5' 
+            cy='12' 
+            r='3' 
             stroke='url(#signalGrad)' 
-            strokeWidth='1.5' 
+            strokeWidth='2' 
             fill='none'
-            opacity='0.3'
+            opacity='0'
+            filter='url(#signalGlow)'
+            className='signal-ring-4'
         />
         
-        {/* Signal wave particles - floating upward */}
-        <circle cx='12' cy='10' r='1' fill='#fbbf24' opacity='0.8' />
-        <circle cx='9' cy='8' r='0.8' fill='#fbbf24' opacity='0.6' />
-        <circle cx='15' cy='8' r='0.8' fill='#fbbf24' opacity='0.6' />
-        <circle cx='12' cy='5' r='1' fill='#fbbf24' opacity='0.4' />
-        <circle cx='8' cy='4' r='0.7' fill='#fbbf24' opacity='0.3' />
-        <circle cx='16' cy='4' r='0.7' fill='#fbbf24' opacity='0.3' />
-        
-        {/* Energy beams shooting upward */}
-        <line x1='12' y1='14' x2='12' y2='3' stroke='url(#signalRadial)' strokeWidth='0.5' opacity='0.4' />
-        <line x1='12' y1='14' x2='9' y2='5' stroke='url(#signalRadial)' strokeWidth='0.5' opacity='0.3' />
-        <line x1='12' y1='14' x2='15' y2='5' stroke='url(#signalRadial)' strokeWidth='0.5' opacity='0.3' />
+        {/* Signal wave indicators */}
+        <circle cx='12' cy='6' r='0.8' fill='url(#signalGrad)' opacity='0.7' className='signal-dot-1' />
+        <circle cx='18' cy='12' r='0.8' fill='url(#signalGrad)' opacity='0.7' className='signal-dot-2' />
+        <circle cx='12' cy='18' r='0.8' fill='url(#signalGrad)' opacity='0.7' className='signal-dot-3' />
+        <circle cx='6' cy='12' r='0.8' fill='url(#signalGrad)' opacity='0.7' className='signal-dot-4' />
         
         <style>
             {`
-                @keyframes ringExpand1Sig {
-                    0%, 100% { rx: 3; ry: 1.5; opacity: 0.9; }
-                    50% { rx: 3.5; ry: 1.8; opacity: 1; }
+                @keyframes signalRingExpand {
+                    0% { 
+                        r: 3; 
+                        opacity: 0.9; 
+                        stroke-width: 2;
+                    }
+                    50% { 
+                        r: 8; 
+                        opacity: 0.5; 
+                        stroke-width: 1.5;
+                    }
+                    100% { 
+                        r: 11; 
+                        opacity: 0; 
+                        stroke-width: 1;
+                    }
                 }
-                @keyframes ringExpand2Sig {
-                    0%, 100% { rx: 5.5; ry: 2.5; opacity: 0.7; }
-                    50% { rx: 6; ry: 2.8; opacity: 0.9; }
+                @keyframes signalCorePulse {
+                    0%, 100% { 
+                        r: 2; 
+                        opacity: 1; 
+                    }
+                    50% { 
+                        r: 2.5; 
+                        opacity: 0.7; 
+                    }
                 }
-                @keyframes ringExpand3Sig {
-                    0%, 100% { rx: 8; ry: 3.5; opacity: 0.5; }
-                    50% { rx: 8.5; ry: 3.8; opacity: 0.7; }
-                }
-                @keyframes ringExpand4Sig {
-                    0%, 100% { rx: 10.5; ry: 4.5; opacity: 0.3; }
-                    50% { rx: 11; ry: 4.8; opacity: 0.5; }
-                }
-                @keyframes particleFloat1Sig {
-                    0% { cy: 10; opacity: 0.8; }
-                    100% { cy: 2; opacity: 0; }
-                }
-                @keyframes particleFloat2Sig {
-                    0% { cy: 8; opacity: 0.6; }
-                    100% { cy: 1; opacity: 0; }
-                }
-                @keyframes particleFloat3Sig {
-                    0% { cy: 5; opacity: 0.4; }
-                    100% { cy: -1; opacity: 0; }
-                }
-                @keyframes particleFloat4Sig {
-                    0% { cy: 4; opacity: 0.3; }
-                    100% { cy: -2; opacity: 0; }
-                }
-                @keyframes corePulseSig {
-                    0%, 100% { r: 1.5; opacity: 1; }
-                    50% { r: 2; opacity: 0.6; }
-                }
-                @keyframes beamPulseSig {
-                    0%, 100% { opacity: 0.4; }
-                    50% { opacity: 0.8; }
+                @keyframes signalDotPulse {
+                    0%, 100% { 
+                        opacity: 0.7; 
+                        transform: scale(1); 
+                    }
+                    50% { 
+                        opacity: 1; 
+                        transform: scale(1.3); 
+                    }
                 }
                 
-                /* Always animate - scoped to signals icon */
-                .signals-nav-icon ellipse:nth-of-type(1) { 
-                    animation: ringExpand1Sig 2s ease-in-out infinite; 
+                /* Core pulsing */
+                .signals-nav-icon .signal-core {
+                    animation: signalCorePulse 2s ease-in-out infinite;
                 }
-                .signals-nav-icon ellipse:nth-of-type(2) { 
-                    animation: ringExpand2Sig 2s ease-in-out infinite 0.2s; 
+                
+                /* Rings expanding from center to outside with staggered timing */
+                .signals-nav-icon .signal-ring-1 {
+                    animation: signalRingExpand 3s ease-out infinite;
                 }
-                .signals-nav-icon ellipse:nth-of-type(3) { 
-                    animation: ringExpand3Sig 2s ease-in-out infinite 0.4s; 
+                .signals-nav-icon .signal-ring-2 {
+                    animation: signalRingExpand 3s ease-out infinite 0.75s;
                 }
-                .signals-nav-icon ellipse:nth-of-type(4) { 
-                    animation: ringExpand4Sig 2s ease-in-out infinite 0.6s; 
+                .signals-nav-icon .signal-ring-3 {
+                    animation: signalRingExpand 3s ease-out infinite 1.5s;
                 }
-                .signals-nav-icon circle:nth-of-type(2) { 
-                    animation: corePulseSig 1.5s ease-in-out infinite; 
+                .signals-nav-icon .signal-ring-4 {
+                    animation: signalRingExpand 3s ease-out infinite 2.25s;
                 }
-                .signals-nav-icon circle:nth-of-type(3) { 
-                    animation: particleFloat1Sig 2s ease-out infinite; 
+                
+                /* Signal dots pulsing */
+                .signals-nav-icon .signal-dot-1 {
+                    animation: signalDotPulse 2s ease-in-out infinite;
+                    transform-origin: 12px 6px;
                 }
-                .signals-nav-icon circle:nth-of-type(4),
-                .signals-nav-icon circle:nth-of-type(5) { 
-                    animation: particleFloat2Sig 2.5s ease-out infinite; 
+                .signals-nav-icon .signal-dot-2 {
+                    animation: signalDotPulse 2s ease-in-out infinite 0.5s;
+                    transform-origin: 18px 12px;
                 }
-                .signals-nav-icon circle:nth-of-type(6) { 
-                    animation: particleFloat3Sig 3s ease-out infinite; 
+                .signals-nav-icon .signal-dot-3 {
+                    animation: signalDotPulse 2s ease-in-out infinite 1s;
+                    transform-origin: 12px 18px;
                 }
-                .signals-nav-icon circle:nth-of-type(7),
-                .signals-nav-icon circle:nth-of-type(8) { 
-                    animation: particleFloat4Sig 3.5s ease-out infinite; 
-                }
-                .signals-nav-icon line { 
-                    animation: beamPulseSig 1.5s ease-in-out infinite; 
+                .signals-nav-icon .signal-dot-4 {
+                    animation: signalDotPulse 2s ease-in-out infinite 1.5s;
+                    transform-origin: 6px 12px;
                 }
             `}
         </style>
@@ -753,46 +757,186 @@ const FreeBotsIcon = () => (
     <svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
         <defs>
             <linearGradient id='freeGrad' x1='0%' y1='0%' x2='100%' y2='100%'>
-                <stop offset='0%' stopColor='#ffffff' />
-                <stop offset='100%' stopColor='#fbbf24' />
+                <stop offset='0%' stopColor='#fbbf24' />
+                <stop offset='50%' stopColor='#f59e0b' />
+                <stop offset='100%' stopColor='#ff6b00' />
             </linearGradient>
-            <filter id='glow'>
-                <feGaussianBlur stdDeviation='2' result='coloredBlur'/>
+            <radialGradient id='freeRadial'>
+                <stop offset='0%' stopColor='#fbbf24' stopOpacity='1' />
+                <stop offset='50%' stopColor='#f59e0b' stopOpacity='0.6' />
+                <stop offset='100%' stopColor='#ff6b00' stopOpacity='0' />
+            </radialGradient>
+            <filter id='epicGlow'>
+                <feGaussianBlur stdDeviation='3.5' result='coloredBlur'/>
                 <feMerge>
                     <feMergeNode in='coloredBlur'/>
                     <feMergeNode in='SourceGraphic'/>
                 </feMerge>
             </filter>
         </defs>
-        {/* Robot head - rounded rectangle */}
-        <rect x='6' y='3' width='12' height='11' rx='5' fill='#6b7280' opacity='0.8' />
         
-        {/* Left eye - small yellow circle */}
-        <circle cx='9' cy='7' r='1.5' fill='#fbbf24' filter='url(#glow)' />
+        {/* Massive energy aura explosion */}
+        <circle cx='12' cy='12' r='11' fill='url(#freeRadial)' opacity='0.5' filter='url(#epicGlow)' />
         
-        {/* Right eye - larger yellow circle with white center */}
-        <circle cx='14' cy='8' r='2.5' fill='#fbbf24' filter='url(#glow)' />
-        <circle cx='14' cy='8' r='1.2' fill='#ffffff' opacity='0.9' />
+        {/* Power core - Super Saiyan energy */}
+        <circle cx='12' cy='12' r='6' fill='url(#freeRadial)' opacity='0.7' filter='url(#epicGlow)' />
         
-        {/* Neck/body connector */}
-        <rect x='10.5' y='13' width='3' height='3' fill='#9ca3af' />
+        {/* Dragon Ball star pattern */}
+        <path d='M12 6 L13 10 L12 8 L11 10 Z' fill='url(#freeGrad)' filter='url(#epicGlow)' />
+        <path d='M18 12 L14 13 L16 12 L14 11 Z' fill='url(#freeGrad)' filter='url(#epicGlow)' />
+        <path d='M12 18 L13 14 L12 16 L11 14 Z' fill='url(#freeGrad)' filter='url(#epicGlow)' />
+        <path d='M6 12 L10 13 L8 12 L10 11 Z' fill='url(#freeGrad)' filter='url(#epicGlow)' />
         
-        {/* Base bars - 5 yellow vertical bars */}
-        <rect x='4' y='17' width='2.5' height='5' rx='1' fill='url(#freeGrad)' filter='url(#glow)' />
-        <rect x='7.5' y='17' width='2.5' height='5' rx='1' fill='url(#freeGrad)' filter='url(#glow)' />
-        <rect x='11' y='17' width='2.5' height='5' rx='1' fill='#ffffff' opacity='0.9' />
-        <rect x='14.5' y='17' width='2.5' height='5' rx='1' fill='url(#freeGrad)' filter='url(#glow)' />
-        <rect x='18' y='17' width='2.5' height='5' rx='1' fill='url(#freeGrad)' filter='url(#glow)' />
+        {/* Diagonal energy spikes */}
+        <path d='M16.5 7.5 L13.5 10.5 L14.5 9.5 L13.5 8.5 Z' fill='url(#freeGrad)' filter='url(#epicGlow)' />
+        <path d='M16.5 16.5 L13.5 13.5 L14.5 14.5 L13.5 15.5 Z' fill='url(#freeGrad)' filter='url(#epicGlow)' />
+        <path d='M7.5 16.5 L10.5 13.5 L9.5 14.5 L8.5 13.5 Z' fill='url(#freeGrad)' filter='url(#epicGlow)' />
+        <path d='M7.5 7.5 L10.5 10.5 L9.5 9.5 L8.5 10.5 Z' fill='url(#freeGrad)' filter='url(#epicGlow)' />
+        
+        {/* Central power sphere - like a Spirit Bomb */}
+        <circle cx='12' cy='12' r='3.5' fill='url(#freeGrad)' filter='url(#epicGlow)' />
+        <circle cx='12' cy='12' r='2' fill='#ffffff' opacity='0.95' />
+        
+        {/* Energy rings orbiting */}
+        <circle cx='12' cy='12' r='8' stroke='url(#freeGrad)' strokeWidth='1.5' fill='none' opacity='0.6' strokeDasharray='3 2' filter='url(#epicGlow)' />
+        <circle cx='12' cy='12' r='5' stroke='url(#freeGrad)' strokeWidth='1' fill='none' opacity='0.8' strokeDasharray='2 1' filter='url(#epicGlow)' />
+        
+        {/* Power nodes at cardinal points */}
+        <circle cx='12' cy='4' r='1.5' fill='url(#freeGrad)' filter='url(#epicGlow)' />
+        <circle cx='20' cy='12' r='1.5' fill='url(#freeGrad)' filter='url(#epicGlow)' />
+        <circle cx='12' cy='20' r='1.5' fill='url(#freeGrad)' filter='url(#epicGlow)' />
+        <circle cx='4' cy='12' r='1.5' fill='url(#freeGrad)' filter='url(#epicGlow)' />
         
         <style>
             {`
-                @keyframes eyeBlink {
-                    0%, 90%, 100% { opacity: 1; }
-                    95% { opacity: 0.3; }
+                @keyframes freeEpicPulse {
+                    0%, 100% { transform: scale(1); opacity: 1; }
+                    50% { transform: scale(1.15); opacity: 0.7; }
                 }
-                @keyframes barPulse {
-                    0%, 100% { transform: scaleY(1); }
-                    50% { transform: scaleY(0.9); }
+                @keyframes freeRingRotate {
+                    0% { transform: rotate(0deg); }
+                    100% { transform: rotate(360deg); }
+                }
+                @keyframes freeSpikeFlash {
+                    0%, 90%, 100% { opacity: 1; }
+                    95% { opacity: 0.5; }
+                }
+            `}
+        </style>
+    </svg>
+);
+
+const BotBuilderIcon = () => (
+    <svg width='40.56' height='40.56' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg' className='bot-builder-nav-icon'>
+        <defs>
+            <linearGradient id='ironmanGrad' x1='0%' y1='0%' x2='100%' y2='100%'>
+                <stop offset='0%' stopColor='#fbbf24' />
+                <stop offset='50%' stopColor='#dc2626' />
+                <stop offset='100%' stopColor='#991b1b' />
+            </linearGradient>
+            <linearGradient id='ironmanGold' x1='0%' y1='0%' x2='100%' y2='100%'>
+                <stop offset='0%' stopColor='#fbbf24' />
+                <stop offset='100%' stopColor='#f59e0b' />
+            </linearGradient>
+            <radialGradient id='ironmanRadial' cx='50%' cy='50%'>
+                <stop offset='0%' stopColor='#fbbf24' stopOpacity='1' />
+                <stop offset='50%' stopColor='#dc2626' stopOpacity='0.6' />
+                <stop offset='100%' stopColor='#991b1b' stopOpacity='0' />
+            </radialGradient>
+            <filter id='ironmanGlow'>
+                <feGaussianBlur stdDeviation='3.5' result='coloredBlur'/>
+                <feMerge>
+                    <feMergeNode in='coloredBlur'/>
+                    <feMergeNode in='SourceGraphic'/>
+                </feMerge>
+            </filter>
+        </defs>
+        
+        {/* Arc Reactor energy aura */}
+        <circle cx='12' cy='12' r='11' fill='url(#ironmanRadial)' opacity='0.5' filter='url(#ironmanGlow)' />
+        
+        {/* Iron Man Helmet Shape */}
+        {/* Top of helmet - rounded dome */}
+        <path d='M6 10 Q6 4 12 4 Q18 4 18 10' fill='url(#ironmanGrad)' filter='url(#ironmanGlow)' />
+        
+        {/* Helmet sides */}
+        <path d='M6 10 L6 16 Q6 18 8 18 L10 18' fill='url(#ironmanGrad)' filter='url(#ironmanGlow)' />
+        <path d='M18 10 L18 16 Q18 18 16 18 L14 18' fill='url(#ironmanGrad)' filter='url(#ironmanGlow)' />
+        
+        {/* Faceplate - iconic Iron Man shape */}
+        <path d='M8 11 L8 15 Q8 17 10 17 L14 17 Q16 17 16 15 L16 11 Q16 10 15 10 L9 10 Q8 10 8 11 Z' 
+              fill='url(#ironmanGold)' 
+              filter='url(#ironmanGlow)' />
+        
+        {/* Eye slits - glowing */}
+        <ellipse cx='10' cy='13' rx='1.5' ry='1' fill='#ffffff' opacity='0.95' filter='url(#ironmanGlow)' />
+        <ellipse cx='14' cy='13' rx='1.5' ry='1' fill='#ffffff' opacity='0.95' filter='url(#ironmanGlow)' />
+        
+        {/* Eye glow effect */}
+        <ellipse cx='10' cy='13' rx='2' ry='1.5' fill='#fbbf24' opacity='0.6' filter='url(#ironmanGlow)' />
+        <ellipse cx='14' cy='13' rx='2' ry='1.5' fill='#fbbf24' opacity='0.6' filter='url(#ironmanGlow)' />
+        
+        {/* Mouth/chin piece */}
+        <path d='M10 15 Q12 16 14 15' stroke='url(#ironmanGrad)' strokeWidth='1' fill='none' />
+        <rect x='11' y='15.5' width='2' height='1.5' rx='0.5' fill='url(#ironmanGrad)' />
+        
+        {/* Arc Reactor on chest (below helmet) */}
+        <circle cx='12' cy='20' r='1.5' fill='#ffffff' opacity='0.9' filter='url(#ironmanGlow)' />
+        <circle cx='12' cy='20' r='2.5' stroke='url(#ironmanGold)' strokeWidth='0.5' fill='none' opacity='0.7' />
+        <circle cx='12' cy='20' r='1' fill='#60a5fa' opacity='0.8' filter='url(#ironmanGlow)' />
+        
+        {/* Helmet details - panel lines */}
+        <line x1='12' y1='4' x2='12' y2='10' stroke='url(#ironmanGrad)' strokeWidth='0.5' opacity='0.4' />
+        <path d='M9 7 Q12 6 15 7' stroke='url(#ironmanGrad)' strokeWidth='0.5' opacity='0.4' fill='none' />
+        
+        {/* Side vents */}
+        <rect x='7' y='12' width='1' height='3' rx='0.3' fill='#1f2937' opacity='0.6' />
+        <rect x='16' y='12' width='1' height='3' rx='0.3' fill='#1f2937' opacity='0.6' />
+        
+        {/* Energy particles around helmet */}
+        <circle cx='5' cy='8' r='0.5' fill='#fbbf24' opacity='0.8' />
+        <circle cx='19' cy='8' r='0.5' fill='#fbbf24' opacity='0.8' />
+        <circle cx='7' cy='6' r='0.4' fill='#f59e0b' opacity='0.7' />
+        <circle cx='17' cy='6' r='0.4' fill='#f59e0b' opacity='0.7' />
+        
+        {/* Power glow lines */}
+        <path d='M8 10 L6 8' stroke='url(#ironmanGold)' strokeWidth='0.5' opacity='0.5' filter='url(#ironmanGlow)' />
+        <path d='M16 10 L18 8' stroke='url(#ironmanGold)' strokeWidth='0.5' opacity='0.5' filter='url(#ironmanGlow)' />
+        
+        <style>
+            {`
+                @keyframes ironmanEyeGlow {
+                    0%, 100% { opacity: 0.95; }
+                    50% { opacity: 0.6; }
+                }
+                @keyframes ironmanArcPulse {
+                    0%, 100% { opacity: 0.8; transform: scale(1); }
+                    50% { opacity: 1; transform: scale(1.2); }
+                }
+                @keyframes ironmanParticleFloat {
+                    0%, 100% { transform: translateY(0); opacity: 0.8; }
+                    50% { transform: translateY(-3px); opacity: 0.4; }
+                }
+                @keyframes ironmanAuraExpand {
+                    0%, 100% { opacity: 0.5; transform: scale(1); }
+                    50% { opacity: 0.3; transform: scale(1.1); }
+                }
+                
+                .bot-builder-nav-icon ellipse:nth-of-type(1),
+                .bot-builder-nav-icon ellipse:nth-of-type(2) {
+                    animation: ironmanEyeGlow 2s ease-in-out infinite;
+                }
+                .bot-builder-nav-icon circle:nth-last-of-type(3) {
+                    animation: ironmanArcPulse 1.5s ease-in-out infinite;
+                }
+                .bot-builder-nav-icon circle:nth-of-type(1) {
+                    animation: ironmanAuraExpand 3s ease-in-out infinite;
+                }
+                .bot-builder-nav-icon circle:nth-last-of-type(4),
+                .bot-builder-nav-icon circle:nth-last-of-type(3),
+                .bot-builder-nav-icon circle:nth-last-of-type(2),
+                .bot-builder-nav-icon circle:nth-last-of-type(1) {
+                    animation: ironmanParticleFloat 2s ease-in-out infinite;
                 }
             `}
         </style>
@@ -819,9 +963,9 @@ const AppWrapper = observer(() => {
     };
     const [bots, setBots] = useState<BotType[]>([]);
     const [analysisToolUrl, setAnalysisToolUrl] = useState('ai');
+    const [isAdminPanelOpen, setIsAdminPanelOpen] = useState(false);
     const [premiumBotModal, setPremiumBotModal] = useState({ isOpen: false, botName: '', xmlFile: '' });
     const [premiumPassword, setPremiumPassword] = useState('');
-    const [isAdminPanelOpen, setIsAdminPanelOpen] = useState(false);
 
     // Setup admin panel access
     useEffect(() => {
@@ -844,12 +988,7 @@ const AppWrapper = observer(() => {
     useEffect(() => {
         const fetchBots = async () => {
             const botFiles = [
-                // All Available Bots
-                'D strike 2.xml',
-                'Magic Recovery.xml',
-                'Over 2 Rec Over 4.xml',
-                'UNDER 7,UNDER 5.xml',
-                'UNDER 8,UNDER 6.xml',
+                // Free Bots - Only Patel and Raziel
                 'PATEL (with Entry).xml',
                 'Raziel Over Under.xml',
             ];
@@ -3789,7 +3928,6 @@ const AppWrapper = observer(() => {
                                         })}
                                 </div>
 
-                                {/* PREMIUM BOTS SECTION */}
                                 <h2
                                     style={{
                                         color: '#1f2937',
@@ -4546,7 +4684,7 @@ const AppWrapper = observer(() => {
                                             `}
                                         </style>
                                     </svg>
-                                    <Localize i18n_default_text='Nova Analysis' />
+                                    <Localize i18n_default_text='Pro Analysis' />
                                 </>
                             }
                             id='id-nova-analysis'

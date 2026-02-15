@@ -57,7 +57,7 @@ export const NovaprimeLoader: React.FC<NovaprimeLoaderProps> = ({ onLoadComplete
                     <div className="logo-icon">
                         <div className="icon-p">P</div>
                     </div>
-                    <h1 className="logo-text">NOVAPRIME</h1>
+                    <h1 className="logo-text">PROTRADE</h1>
                 </div>
 
                 {/* Trading Interface Mockup */}
