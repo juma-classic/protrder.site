@@ -2869,6 +2869,76 @@ const AppWrapper = observer(() => {
                                         <span style={{ position: 'relative', zIndex: 1 }}>▲ LDP SCAN</span>
                                     </button>
 
+                                    <button
+                                        onClick={() => toggleAnalysisTool('https://mesoflix.com')}
+                                        style={{
+                                            flex: 1,
+                                            position: 'relative',
+                                            background:
+                                                analysisToolUrl === 'https://mesoflix.com'
+                                                    ? 'linear-gradient(135deg, #9333ea 0%, #c026d3 50%, #ec4899 100%)'
+                                                    : 'linear-gradient(135deg, rgba(147, 51, 234, 0.1) 0%, rgba(192, 38, 211, 0.05) 100%)',
+                                            color: analysisToolUrl === 'https://mesoflix.com' ? '#ffffff' : '#c026d3',
+                                            padding: '8px 16px',
+                                            border:
+                                                analysisToolUrl === 'https://mesoflix.com'
+                                                    ? '1px solid #c026d3'
+                                                    : '1px solid rgba(192, 38, 211, 0.3)',
+                                            borderRadius: '0',
+                                            cursor: 'pointer',
+                                            fontWeight: 600,
+                                            fontSize: '11px',
+                                            fontFamily: 'monospace',
+                                            letterSpacing: '1px',
+                                            textTransform: 'uppercase',
+                                            transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                                            boxShadow:
+                                                analysisToolUrl === 'https://mesoflix.com'
+                                                    ? '0 0 20px rgba(192, 38, 211, 0.5), inset 0 0 20px rgba(255, 255, 255, 0.1)'
+                                                    : '0 0 10px rgba(192, 38, 211, 0.2)',
+                                            height: '32px',
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            justifyContent: 'center',
+                                            overflow: 'hidden',
+                                            clipPath: 'polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%)',
+                                        }}
+                                        onMouseEnter={e => {
+                                            if (analysisToolUrl !== 'https://mesoflix.com') {
+                                                e.currentTarget.style.background =
+                                                    'linear-gradient(135deg, rgba(147, 51, 234, 0.2) 0%, rgba(192, 38, 211, 0.1) 100%)';
+                                                e.currentTarget.style.boxShadow = '0 0 15px rgba(192, 38, 211, 0.4)';
+                                                e.currentTarget.style.color = '#ffffff';
+                                            }
+                                        }}
+                                        onMouseLeave={e => {
+                                            if (analysisToolUrl !== 'https://mesoflix.com') {
+                                                e.currentTarget.style.background =
+                                                    'linear-gradient(135deg, rgba(147, 51, 234, 0.1) 0%, rgba(192, 38, 211, 0.05) 100%)';
+                                                e.currentTarget.style.boxShadow = '0 0 10px rgba(192, 38, 211, 0.2)';
+                                                e.currentTarget.style.color = '#c026d3';
+                                            }
+                                        }}
+                                    >
+                                        {/* Button glow effect */}
+                                        {analysisToolUrl === 'https://mesoflix.com' && (
+                                            <div
+                                                style={{
+                                                    position: 'absolute',
+                                                    top: 0,
+                                                    left: 0,
+                                                    right: 0,
+                                                    bottom: 0,
+                                                    background:
+                                                        'linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.2) 50%, transparent 70%)',
+                                                    animation: 'shimmer 2s infinite',
+                                                    pointerEvents: 'none',
+                                                }}
+                                            />
+                                        )}
+                                        <span style={{ position: 'relative', zIndex: 1 }}>◆ ANALYSIS PRO</span>
+                                    </button>
+
                                     {/* Add CSS animations */}
                                     <style>
                                         {`
@@ -2900,7 +2970,7 @@ const AppWrapper = observer(() => {
                                         <div style={{ height: '100%', overflowY: 'auto', padding: '0' }}>
                                             <AnalysisTool />
                                         </div>
-                                    ) : analysisToolUrl === 'ai' ? (
+                                    ) : analysisToolUrl === 'ai' || analysisToolUrl === 'https://mesoflix.com' ? (
                                         <iframe
                                             src={analysisToolUrl}
                                             width='100%'
@@ -3148,6 +3218,39 @@ const AppWrapper = observer(() => {
                                         />
                                     )}
                                 </div>
+                            </div>
+                        </div>
+                        {/* ADVANCED ANALYSIS TAB */}
+                        <div
+                            label={
+                                <>
+                                    <AnalysisToolIcon />
+                                    <Localize i18n_default_text='Advanced Analysis' />
+                                </>
+                            }
+                            id='id-advanced-analysis'
+                        >
+                            <div
+                                style={{
+                                    width: '100%',
+                                    height: '100%',
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                }}
+                            >
+                                <iframe
+                                    src='https://bot-analysis-tool-belex.web.app'
+                                    width='100%'
+                                    style={{
+                                        border: 'none',
+                                        display: 'block',
+                                        height: '100%',
+                                        minHeight: '600px',
+                                        background: '#f8fafc',
+                                    }}
+                                    scrolling='yes'
+                                    title='Advanced Analysis Tool'
+                                />
                             </div>
                         </div>
                         {/* ZEUS ANALYSIS TAB - MOVED TO ANALYSIS TOOL */}
