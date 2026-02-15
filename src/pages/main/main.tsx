@@ -988,7 +988,7 @@ const AppWrapper = observer(() => {
     useEffect(() => {
         const fetchBots = async () => {
             const botFiles = [
-                // Free Bots - Only Patel and Raziel
+                // Free Bots - Patel and Raziel
                 'PATEL (with Entry).xml',
                 'Raziel Over Under.xml',
             ];
@@ -3373,7 +3373,7 @@ const AppWrapper = observer(() => {
                                         flexShrink: 0,
                                     }}
                                 >
-                                    Bot Collection
+                                    Free Bots
                                 </h2>
                                 <p
                                     style={{
@@ -3383,7 +3383,7 @@ const AppWrapper = observer(() => {
                                         textAlign: 'left',
                                     }}
                                 >
-                                    Premium bots and advanced trading strategies
+                                    Free trading strategies to get you started
                                 </p>
                                 <div
                                     className='free-bots-grid'
@@ -3801,10 +3801,8 @@ const AppWrapper = observer(() => {
                                                     return 'Revolutionary AI-powered strategy that adapts to market conditions';
                                                 } else if (lowerName.includes('cfx')) {
                                                     return 'High-speed CFX trading with advanced pattern recognition';
-                                                } else if (lowerName.includes('over') || lowerName.includes('under')) {
+                                                } else if (lowerName.includes('over') || lowerName.includes('under') || lowerName.includes('raziel')) {
                                                     return 'Over/Under prediction strategy with statistical analysis';
-                                                } else if (lowerName.includes('raziel')) {
-                                                    return 'Divine trading strategy with heavenly accuracy';
                                                 } else if (lowerName.includes('strike')) {
                                                     return 'Precision strike strategy with advanced targeting';
                                                 } else if (lowerName.includes('magic') || lowerName.includes('recovery')) {
@@ -3939,7 +3937,7 @@ const AppWrapper = observer(() => {
                                         marginTop: '1rem',
                                     }}
                                 >
-                                    Premium Bots
+                                    Auto Bots
                                 </h2>
                                 <p
                                     style={{
@@ -3949,7 +3947,7 @@ const AppWrapper = observer(() => {
                                         textAlign: 'left',
                                     }}
                                 >
-                                    Exclusive premium strategies with advanced features
+                                    Automated trading strategies with intelligent execution
                                 </p>
                                 <div
                                     className='premium-bots-grid'
@@ -3962,7 +3960,7 @@ const AppWrapper = observer(() => {
                                 >
                                     {[
                                         { 
-                                            name: 'Novagrid 2026',
+                                            name: 'Auto Even Odd',
                                             xmlFile: 'NOVAGRID 2026.xml',
                                             icon: (
                                                 // Supernova / Cosmic Explosion
@@ -4060,14 +4058,14 @@ const AppWrapper = observer(() => {
                                             ), 
                                             rate: 97,
                                             price: '$1,099',
-                                            description: 'Ultimate AI-powered trading system with neural network analysis, real-time market adaptation, and premium 24/7 support'
+                                            description: 'Automated Even Odd trading with advanced AI analysis and intelligent risk management'
                                         },
                                         { 
-                                            name: 'Novagrid Elite',
+                                            name: 'Auto Over Under',
                                             xmlFile: '🖤⚜️ 𝓣𝓱𝓮 𝓓𝓪𝓻𝓴 𝓓𝔂𝓷𝓪𝓼𝓽𝔂 ⚜️🖤2.xml',
                                             rate: 94,
                                             price: '$499',
-                                            description: 'Elite trading strategy with advanced pattern recognition, precision execution, and professional-grade analytics',
+                                            description: 'Automated Over/Under strategy with precision execution and pattern recognition',
                                             icon: (
                                                 // Spiral Galaxy
                                                 <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
