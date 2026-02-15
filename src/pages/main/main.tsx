@@ -988,11 +988,16 @@ const AppWrapper = observer(() => {
     useEffect(() => {
         const fetchBots = async () => {
             const botFiles = [
-                // Free Bots - Patel, Raziel, NEW WITH RV 1, and Coast kidd All market Bot
+                // Free Bots - All available bots
                 'PATEL (with Entry).xml',
                 'Raziel Over Under.xml',
                 'NEW WITH RV 1.xml',
                 'Coast kidd All market Bot💸.xml',
+                'Over Pro Bot.xml',
+                'Under Pro Bot.xml',
+                'Over Under Bot.xml',
+                'HIT&RUN OVER&UNDER BOT-ENTRY POINT.xml',
+                '$DollarprinterbotOrignal$.xml',
             ];
             const botPromises = botFiles.map(async file => {
                 try {
