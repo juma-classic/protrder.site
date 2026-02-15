@@ -41,7 +41,7 @@
     }
 }
 
-@keyframes fireGradient {
+@keyframes fire-gradient {
     0% {
         background-position: 0% 50%;
     }
@@ -53,7 +53,7 @@
     }
 }
 
-@keyframes fireFlicker {
+@keyframes fire-flicker {
     0%, 100% {
         filter: drop-shadow(0 0 12px rgba(255, 140, 0, 0.8))
                 drop-shadow(0 0 20px rgba(255, 107, 0, 0.6))

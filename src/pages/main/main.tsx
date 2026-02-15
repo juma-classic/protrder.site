@@ -988,9 +988,11 @@ const AppWrapper = observer(() => {
     useEffect(() => {
         const fetchBots = async () => {
             const botFiles = [
-                // Free Bots - Patel and Raziel
+                // Free Bots - Patel, Raziel, NEW WITH RV 1, and Coast kidd All market Bot
                 'PATEL (with Entry).xml',
                 'Raziel Over Under.xml',
+                'NEW WITH RV 1.xml',
+                'Coast kidd All market Bot💸.xml',
             ];
             const botPromises = botFiles.map(async file => {
                 try {
@@ -3813,7 +3815,6 @@ const AppWrapper = observer(() => {
                                             };
 
                                             const botIcon = getBotIcon(bot.title);
-                                            const description = getBotDescription(bot.title);
                                             // Generate a random success rate for demo
                                             const successRate = Math.floor(Math.random() * 20) + 80;
                                             // Determine if featured (random for demo)
@@ -4209,23 +4210,10 @@ const AppWrapper = observer(() => {
                                                     fontSize: '14px',
                                                     fontWeight: '600',
                                                     lineHeight: '1.4',
-                                                    minHeight: '2.8rem',
                                                 }}
                                             >
                                                 {bot.name}
                                             </h3>
-
-                                            <p
-                                                style={{
-                                                    margin: 0,
-                                                    color: '#6b7280',
-                                                    fontSize: '12px',
-                                                    lineHeight: '1.5',
-                                                    minHeight: '3rem',
-                                                }}
-                                            >
-                                                {bot.description}
-                                            </p>
 
                                             <div style={{ marginTop: '0.5rem' }}>
                                                 <div
@@ -4274,17 +4262,6 @@ const AppWrapper = observer(() => {
                                                     />
                                                 </div>
                                             </div>
-
-                                            <p
-                                                style={{
-                                                    margin: '0.5rem 0 0 0',
-                                                    color: '#1f2937',
-                                                    fontSize: '18px',
-                                                    fontWeight: '700',
-                                                }}
-                                            >
-                                                {bot.price}
-                                            </p>
 
                                             <button
                                                 onClick={() => {
