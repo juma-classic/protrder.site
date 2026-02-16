@@ -14,9 +14,9 @@ const CopyTradingProHeaderIcon = () => (
         </defs>
         <rect x="6" y="4" width="10" height="14" rx="1" fill="url(#proHeaderGrad)" opacity="0.3" />
         <rect x="8" y="6" width="10" height="14" rx="1" fill="url(#proHeaderGrad)" stroke="#06b6d4" strokeWidth="1.5" />
-        <path d="M10 10h4M10 13h4M10 16h2" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
-        <circle cx="15" cy="9" r="3" fill="#0891b2" stroke="white" strokeWidth="1"/>
-        <path d="M14 9l1 1 2-2" stroke="white" strokeWidth="1" strokeLinecap="round"/>
+        <path d="M10 10h4M10 13h4M10 16h2" stroke="#ffffff" strokeWidth="1.5" strokeLinecap="round"/>
+        <circle cx="15" cy="9" r="3" fill="#0891b2" stroke="#ffffff" strokeWidth="1"/>
+        <path d="M14 9l1 1 2-2" stroke="#ffffff" strokeWidth="1" strokeLinecap="round"/>
     </svg>
 );
 
