@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en" dir="auto">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="data:,">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Copy Trading Pro - Debug Test</title>
+    <style>
+        :root {
+            font-size: 62.5%;
+        }
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: #1a1a1a;
+            color: white;
+        }
+        #debug-info {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.8);
+            padding: 15px;
+            border-radius: 8px;
+            max-width: 400px;
+            font-size: 12px;
+            z-index: 9999;
+        }
+        .error { color: #ff4444; }
+        .success { color: #44ff44; }
+        .info { color: #4444ff; }
+    </style>
+    
+    <!-- CSS Files -->
+    <link href="./822.7b5680c9.css" rel="stylesheet">
+    <link href="./index.4c2b116d.css" rel="stylesheet">
+</head>
+
+<body class="body theme theme--light">
+    <div id="debug-info">
+        <h3>Debug Console</h3>
+        <div id="log"></div>
+    </div>
+
+    <div id="modal_root" class="modal-root"></div>
+    <div id="popup_root" class="popup-root"></div>
+    <div id="root"></div>
+
+    <script>
+        // Debug logger
+        const log = (msg, type = 'info') => {
+            const logDiv = document.getElementById('log');
+            const entry = document.createElement('div');
+            entry.className = type;
+            entry.textContent = `[${new Date().toLocaleTimeString()}] ${msg}`;
+            logDiv.appendChild(entry);
+            console.log(msg);
+        };
+
+        // Capture errors
+        window.addEventListener('error', (e) => {
+            log(`ERROR: ${e.message} at ${e.filename}:${e.lineno}`, 'error');
+        });
+
+        window.addEventListener('unhandledrejection', (e) => {
+            log(`PROMISE ERROR: ${e.reason}`, 'error');
+        });
+
+        log('Starting to load scripts...', 'info');
+    </script>
+
+    <!-- JavaScript Files in correct order -->
+    <script defer src="./lib-react.e4413b60.js" onload="log('lib-react loaded', 'success')" onerror="log('lib-react FAILED', 'error')"></script>
+    <script defer src="./lib-router.0aac990c.js" onload="log('lib-router loaded', 'success')" onerror="log('lib-router FAILED', 'error')"></script>
+    <script defer src="./822.20659a06.js" onload="log('822 loaded', 'success')" onerror="log('822 FAILED', 'error')"></script>
+    <script defer src="./index.c588ca31.js" onload="log('index loaded', 'success')" onerror="log('index FAILED', 'error')"></script>
+
+    <script>
+        // Check if React loaded
+        setTimeout(() => {
+            if (typeof React !== 'undefined') {
+                log('React is available: ' + React.version, 'success');
+            } else {
+                log('React is NOT available', 'error');
+            }
+
+            if (document.getElementById('root').children.length > 0) {
+                log('App rendered successfully!', 'success');
+            } else {
+                log('App did NOT render - root is empty', 'error');
+            }
+        }, 2000);
+    </script>
+</body>
+</html>

@@ -28,6 +28,7 @@ import RunStrategy from '../dashboard/run-strategy';
 const Chart = lazy(() => import('../chart'));
 const Tutorial = lazy(() => import('../tutorials'));
 const CopyTradingPage = lazy(() => import('../copy-trading-page'));
+const CopyTradingProPage = lazy(() => import('../copy-trading-pro-page'));
 
 const DashboardIcon = () => (
     <svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg' className='dashboard-nav-icon'>
@@ -823,6 +824,30 @@ const FreeBotsIcon = () => (
                 }
             `}
         </style>
+    </svg>
+);
+
+const CopyTradingProIcon = () => (
+    <svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+        <defs>
+            <linearGradient id='copyProGrad' x1='0%' y1='0%' x2='100%' y2='100%'>
+                <stop offset='0%' stopColor='#06b6d4' />
+                <stop offset='50%' stopColor='#0891b2' />
+                <stop offset='100%' stopColor='#0e7490' />
+            </linearGradient>
+        </defs>
+        
+        {/* Two overlapping documents representing copy trading */}
+        <rect x='6' y='4' width='10' height='14' rx='1' fill='url(#copyProGrad)' opacity='0.3' />
+        <rect x='8' y='6' width='10' height='14' rx='1' fill='url(#copyProGrad)' stroke='#06b6d4' strokeWidth='1.5' />
+        
+        {/* Arrow indicating copying */}
+        <path d='M10 11 L12 13 L14 11' stroke='#ffffff' strokeWidth='1.5' strokeLinecap='round' strokeLinejoin='round' />
+        <line x1='12' y1='9' x2='12' y2='13' stroke='#ffffff' strokeWidth='1.5' strokeLinecap='round' />
+        
+        {/* Pro badge */}
+        <circle cx='16' cy='8' r='3' fill='#fbbf24' />
+        <text x='16' y='9.5' fontSize='4' fontWeight='bold' fill='#000' textAnchor='middle'>P</text>
     </svg>
 );
 
@@ -4633,6 +4658,21 @@ const AppWrapper = observer(() => {
                                     `}
                                 </style>
                             </div>
+                        </div>
+
+                        {/* COPY TRADING PRO TAB */}
+                        <div
+                            label={
+                                <>
+                                    <CopyTradingProIcon />
+                                    <Localize i18n_default_text='Copy Trading Pro' />
+                                </>
+                            }
+                            id='id-copy-trading-pro'
+                        >
+                            <Suspense fallback={<ChunkLoader message={localize('Loading Copy Trading Pro...')} />}>
+                                <CopyTradingProPage />
+                            </Suspense>
                         </div>
 
                         {/* NOVA ANALYSIS TAB */}

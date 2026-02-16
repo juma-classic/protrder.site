@@ -32,6 +32,7 @@ export const DBOT_TABS: TDashboardTabIndex = Object.freeze({
     TICKSHARK: 17,
     ACCUMULATOR: 18,
     DIGIT_HACKER: 19,
+    COPY_TRADING_PRO: 20,
 });
 
 export const MAX_STRATEGIES = 10;
